@@ -1,0 +1,16 @@
+.one-post{
+    display: inline-block;
+    background: whitesmoke;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+}
+.one-post img{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.one-post span{
+    color: rgba(92,100,92,0.93);
+}

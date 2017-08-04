@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Img</title>
+    <link rel="stylesheet" href="css/cssweb.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/postImg.js"></script>
+</head>
+<body>
+    <div ng-app="mypost">
+        <div ng-controller="myContr" ng-init="all_post()">
+            <div class="one-post" ng-repeat="row in full_post">
+                <img src="{{severimg}}{{row.link_img}}" alt="">
+                <p>id: <span>{{row._id}}</span></p>
+                <p>user: <span>{{row.id_user}}</span></p>
+                <p>content: <span>{{row.content}}</span></p>
+                <p>add date: <span>{{row.add_date}}</span></p>
+                <p>update date: <span>{{row.updated}}</span></p>
+            </div>
+
+            <form action="http://localhost:3000/new_post" method="post" enctype="multipart/form-data">
+                <input type="text" name="id_user">
+                <input type="text" name="content">
+                <input type="file" name="feature">
+                <button type="submit">gửi</button>
+            </form>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
