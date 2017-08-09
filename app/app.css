@@ -39,3 +39,45 @@
 .one-post span{
   color: rgba(92,100,92,0.93);
 }
+
+/*nút tìm kiếm */
+.search{
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+  display: inline-block;
+  background: whitesmoke;
+  position: relative;
+  overflow: hidden;
+}
+.search>label{
+  display: block;
+  position: absolute;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  bottom: 5px;
+  background: white;
+  transition: opacity 1s,bottom 1s;
+}
+.search>div{
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  display: block;
+  position: relative;
+  opacity: 0;
+  top: -20px;
+  transition: opacity 1s,top 1s;
+}
+.search input{
+  font-size: 15px;
+  border: none;
+  outline: none;
+}
+.search:hover >label{
+  bottom: -20px;
+  opacity: 0;
+}
+.search:hover >div{
+  top: 0px;
+  opacity: 1;
+}
