@@ -6,14 +6,18 @@ angular.module('myApp.view1', ['ngRoute'])
         controller: 'View1Ctrl'
     })
       .when("/view1",{
-          templateUrl: 'post_img/post_img.html',
+          templateUrl: 'views/login.html',
           controller: 'View1Ctrl'
   });
 }])
     .controller('View1Ctrl',function( $scope,$http) {
+
+        $scope.newPost = {};
+
+
         if (!angular.isDefined(localStorage.jwt)) {
-            localStorage.id="59819822c729f60b18f59c62";
-            localStorage.jwt="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmb28iOiJiYXIifQ.yPmf5QFV26W-3ldVCrsvRdnecy7QjA0fnCWCDLDZ-M4";
+            // localStorage.id="59819822c729f60b18f59c62";
+            // localStorage.jwt="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmb28iOiJiYXIifQ.yPmf5QFV26W-3ldVCrsvRdnecy7QjA0fnCWCDLDZ-M4";
         }
         $scope.likes_post=function (id_post,key) {
             $http({
@@ -22,7 +26,7 @@ angular.module('myApp.view1', ['ngRoute'])
             }).then(function successCallback(response) {
                 $scope.full_post[key].likes=response.data.likes;
             }, function errorCallback(response) {
-            })
+            });
         };
         $scope.severimg="http://localhost:3000/";
         $scope.all_post=function () {
@@ -39,4 +43,18 @@ angular.module('myApp.view1', ['ngRoute'])
             $scope.trung="---> "+localStorage.user_name.user;
         }
 
+        $scope.uploader = new FileUploader({
+            url: "http://localhost:3000/login",
+            onBeforeUploadItem: function(item){
+                item.formData = {
+
+                };
+            }
+        });
+
+        $scope.submitForm = function() {
+            $scope.uploader.uploadAll({
+
+            });
+        };
 });
